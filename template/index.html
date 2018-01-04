@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=` , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/iview.css">
+    <script type="text/javascript" src="iview/js/vue.min.js"></script>
+    <script type="text/javascript" src="iview/js/iview.js"></script>
+</head>
+<body>
+
+        <div id="app">
+            <i-button @click="show">Click me!</i-button>
+            <Modal :visible.sync="visible" title="Welcome">欢迎使用 iView</Modal>
+        </div>
+        <script>
+          new Vue({
+        el: '#app',
+        data: {
+            visible: false
+        },
+        methods: {
+            show: function () {
+                this.visible = true;
+            }
+        }
+    })
+        
+        
+        </script> 
+    
+</body>
+
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery-2.2.3.min.js">
+    </script>
+    <div class="nav">
+        <span id="menu>"></span>
+        <ul id="top-menu">
+            <li>
+                <a href="#one" class="links">1</a>
+            </li>
+            <li>
+                <a href="#two" class="links">2</a>
+            </li>
+            <li>
+                <a href="#three" class="links">3</a>
+            </li>
+            <li>
+                <a href="#four" class="links">4</a>
+            </li>
+            <li>
+                <a href="#five" class="links">5</a>
+            </li>
+            <li>
+                <a href="#six" class="links">6</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <div id="one" class="container">one </div>
+        <div id="two" class="container">two </div>
+        <div id="three" class="container">three </div>
+        <div id="four" class="container">four </div>
+        <div id="five" class="container">five </div>
+        <div id="six" class="container">six </div>
+
+    </div>
+
+
+  
+</body>
+<script>
+        $(document).ready(function () {
+
+            var $sections = $('.container');
+            $(window).scrollTop(function () {
+                var currentScroll = $(this).scrollTop();
+                var $currentSection;
+
+                $sections.each(function () {
+                    var divPosition = $(this).offset().top;
+                    if (divPosition - 1 < currentScroll) {
+
+                        $currentSection = $(this);
+
+                    }
+                    var id = $currentSection.attr('id');
+                    $("a").removeClass(".active");
+                    $("[href=#" + id + "]").addClass('active')
+
+                })
+            })
+        })
+    </script>
+</html>
